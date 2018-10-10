@@ -304,12 +304,8 @@ public class AWSSignatureV4Generator {
      * @return Time stamp value.
      */
     private String getTimeStamp() {
-        final TimeZone timeZone = TimeZone.getTimeZone("GMT");
-        final SimpleDateFormat dateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z ", Locale.getDefault());
-        dateFormat.setTimeZone(timeZone);
-
-//        DateFormat dateFormat = new SimpleDateFormat("yyyyMMdd'T'HHmmss'Z'");
-//        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));// Set the server time as UTC
+        DateFormat dateFormat = new SimpleDateFormat("YYYYMMDD'T'HHMMSS'Z'");
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));// Set the server time as UTC
         return dateFormat.format(new Date());
     }
 
